@@ -11,9 +11,9 @@ import { autoDetectRenderer, Container } from 'pixi.js';
 export class HeroCanvasComponent implements OnInit {
     private stage: Container;
 
-    @Input() width: number = 64;
-    @Input() height: number = 64;
-    @Input() scaling: number = 4;
+    @Input() width: = 64;
+    @Input() height: = 64;
+    @Input() scaling: = 4;
 
     constructor(private readonly elementRef: ElementRef) { }
 
@@ -21,7 +21,8 @@ export class HeroCanvasComponent implements OnInit {
         const renderer = autoDetectRenderer({
             clearBeforeRender: true,
             width: this.width * this.scaling,
-            height: this.height * this.scaling
+            height: this.height * this.scaling,
+            transparent: true
         });
 
         this.elementRef.nativeElement.appendChild(renderer.view);
